@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import Animated from 'react-native-reanimated';
 import MainText from '@components/texts/MainText';
 
 interface Props {
@@ -17,7 +16,7 @@ const RoomView = (props: Props) => {
     const availabilityText = isAvailable ? 'Available' : 'Not Available';
 
     return (
-        <Animated.View style={[styles.container]}>
+        <View style={[styles.container]}>
             <View>
                 <MainText style={styles.nameTextStyle} text={props.name} />
                 <MainText style={styles.levelTextStyle} text={`Level ${props.level}`} />
@@ -34,7 +33,7 @@ const RoomView = (props: Props) => {
                 />
                 <MainText style={styles.capacityTextStyle} text={`${props.capacity} Pax`} />
             </View>
-        </Animated.View>
+        </View>
     );
 };
 

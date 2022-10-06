@@ -36,7 +36,7 @@ To run the automated unit test, please open a terminal on the root directory and
 
 ## Installing
 ### Downloads
-You can download from the release page
+You can download from the [release](https://github.com/anditandev/rooms/releases/tag/Pre-release) page
 
 ## Android
 ### Installing to emulator/device

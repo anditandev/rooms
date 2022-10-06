@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BackHandler, Linking, Pressable, SafeAreaView, StyleSheet, View } from 'react-native';
 import WebView from 'react-native-webview';
 import { NAVIGATION_STRINGS, RootStackParamList } from '@apptypes/nav';
@@ -35,7 +35,6 @@ const BookingStatusScreen = () => {
         });
         return () => {
             BackHandler.removeEventListener('hardwareBackPress', backHandler);
-            Linking.removeAllListeners('url');
         };
     }, []);
     
@@ -65,13 +64,18 @@ const BookingStatusScreen = () => {
                                     getUrl = decodeURIComponent(getUrl);
                                     if (getUrl)
                                         setUri(getUrl);
-                                    else 
+                                    else {
+                                        backHandler();
                                         openWithExternalBrowser();
+                                    };
                                 }
                             }
                             return false;
-                        } else
+                        } else {
+                            backHandler();
                             openWithExternalBrowser();
+                        };
+                        
                         return true;
                     }}
                 />

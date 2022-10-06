@@ -1,0 +1,20 @@
+{
+    "plugins": [
+        ["babel-plugin-module-resolver", {
+            "root": ["./src"],
+            "alias": {
+                "@components": "./src/components/",
+                "@screens": "./src/screens/",
+                "@apis": "./src/apis/",
+                "@assets": "./src/assets/",
+                "@apptypes": "./src/types/",
+                "@hooks": "./src/hooks/",
+                "@features": "./src/features/",
+                "@reducers": "./src/reducers/",
+                "@constants": "./src/constants/",
+                "@navigations": "./src/navigations/",
+                "@helpers": "./src/helpers/"
+            }
+        }]
+    ]
+}

@@ -13,15 +13,12 @@ interface Props {
 const SortButton = (props: Props) => {
     
     const renderIcon = () => {
-        if (props.currSortType.buttonType === props.btnType) {
-            if (props.currSortType.orderType === SortOrderType.ASCENDING)
-                return <SortDirectionIcon color={'#000'} />
-            else if (props.currSortType.orderType === SortOrderType.DESCENDING)
-                return <SortDirectionIcon color={'#000'} />
-        };
+        if (props.currSortType.buttonType === props.btnType)
+            return <SortDirectionIcon color={'#000'} />
     };
 
     const rotateStyle = props.currSortType.orderType === SortOrderType.DESCENDING 
+    && props.currSortType.buttonType === props.btnType
     && {
         transform: [
             {

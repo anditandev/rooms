@@ -1,5 +1,5 @@
 import { NAVIGATION_STRINGS, RootStackParamList } from '@apptypes/nav';
-import { isValidUrl } from '@helpers/urlHelper';
+import { isValidHttp } from '@helpers/urlHelper';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import React, { useEffect } from 'react';
@@ -24,7 +24,7 @@ const CameraScreen = (props: Props) => {
     const barcodeHandler = () => {
         if (barcodes && barcodes.length > 0 && barcodes[0].rawValue) {
             const url = barcodes[0].rawValue;
-            const isUrl = isValidUrl(url);
+            const isUrl = isValidHttp(url);
             if (isUrl) {
                 navigation.navigate(NAVIGATION_STRINGS.BOOKING_STATUS, {
                     url: url,

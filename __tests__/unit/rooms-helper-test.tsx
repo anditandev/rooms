@@ -1,6 +1,6 @@
 import 'react-native';
 import { RoomType, SortButtonType, SortOrderType, SortType } from '@apptypes/index';
-import { deepCopyRoomsList, getSortedArrayList, isTimeAvailable, setRoomAvailabilities } from '@helpers/roomHelper';
+import { deepCopyRoomsList, getNextSortOrderType, getSortedArrayList, isTimeAvailable, setRoomAvailabilities } from '@helpers/roomHelper';
 import { DEFAULT_ROOMS_LIST_TEST_DATA } from '@constants/defaultValues';
 
 describe('Room helper test', () => {
@@ -188,6 +188,39 @@ describe('Room helper test', () => {
                     expect(nextRoomAvailability).toBeLessThanOrEqual(currRoomAvailability);
                 };
             };
+        });
+    });
+
+    describe('Next sort order test', () => {
+
+        test('given same sort button type, next sort order should be ascending from descending', () => {
+            const sortType: SortType = {
+                orderType: SortOrderType.DESCENDING,
+                buttonType: SortButtonType.AVAILABILITY
+            };
+            const result = getNextSortOrderType(sortType, SortButtonType.AVAILABILITY);
+            
+            expect(result).toEqual(SortOrderType.ASCENDING)
+        });
+
+        test('given same sort button type, next sort order should be descending from ascending', () => {
+            const sortType: SortType = {
+                orderType: SortOrderType.ASCENDING,
+                buttonType: SortButtonType.AVAILABILITY
+            };
+            const result = getNextSortOrderType(sortType, SortButtonType.AVAILABILITY);
+            
+            expect(result).toEqual(SortOrderType.DESCENDING)
+        });
+
+        test('given different sort button type, next sort order should be ascending', () => {
+            const sortType: SortType = {
+                orderType: SortOrderType.DESCENDING,
+                buttonType: SortButtonType.LEVEL
+            };
+            const result = getNextSortOrderType(sortType, SortButtonType.AVAILABILITY);
+            
+            expect(result).toEqual(SortOrderType.ASCENDING)
         });
     });
 });

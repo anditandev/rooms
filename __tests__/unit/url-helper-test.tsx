@@ -25,6 +25,10 @@ describe('URL helper test', () => {
             isValid: true,
         },
         {
+            uri: 'freecodecamp.com',
+            isValid: true,
+        },
+        {
             uri: 'intent://freecodecamp.com',
             isValid: false,
         },

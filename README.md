@@ -33,12 +33,11 @@ To run the automated unit test, please open a terminal on the root directory and
 
 `npm run test`
 
+## Android
 
-## Installing
 ### Downloads
 You can download from the [release](https://github.com/anditandev/rooms/releases/tag/Pre-release) page
 
-## Android
 ### Installing to emulator/device
 Make sure the emulator/device you are trying to install to is connected and run:
 
